@@ -1,0 +1,238 @@
+M<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Robô - Universidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .intro {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding: 20px 0;
+            width: 100%;
+            background: #fff;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #333;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 20px;
+            position: relative;
+            width: 50%;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: ' ';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #333;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .timeline-item.right::after {
+            left: -17px;
+        }
+        .timeline-item-content {
+            padding: 20px;
+            background: #f4f4f4;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .timeline-item-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: max-height 0.3s ease;
+            margin-bottom: 10px;
+        }
+        .timeline-item.collapsed img,
+        .timeline-item.collapsed p {
+            display: none;
+        }
+        .timeline-item.collapsed::after {
+            border-radius: 12px;
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+        }
+        .guide {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+            animation: fadeOut 5s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Guia de Introdução -->
+        <div class="guide">Clique nos itens da linha do tempo para colapsar e expandir.</div>
+
+        <!-- Introdução -->
+        <div class="intro">
+            <h1>Projeto Robô da Universidade</h1>
+            <p>Bem-vindo ao site do nosso projeto de construção de um robô. Aqui, você pode acompanhar o processo de criação e evolução do nosso robô.</p>
+        </div>
+
+        <!-- Equipe -->
+        <div class="team">
+            <div class="team-member">
+                <img src="minha_imagem.jpg" alt="Integrante 1">
+                <p>Nome 1<br><a href="mailto:email1@universidade.com">email1@universidade.com</a></p>
+            </div>
+            <div class="team-member">
+                <img src="integrante2.jpg" alt="Integrante 2">
+                <p>Nome 2<br><a href="mailto:email2@universidade.com">email2@universidade.com</a></p>
+            </div>
+            <div class="team-member">
+                <img src="integrante3.jpg" alt="Integrante 3">
+                <p>Nome 3<br><a href="mailto:email3@universidade.com">email3@universidade.com</a></p>
+            </div>
+        </div>
+
+        <!-- Linha do Tempo -->
+        <div class="timeline">
+            <div class="timeline-item" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 1</h2>
+                    <p>Descrição da fase 1 do projeto.</p>
+                    <img src="fase1-1.jpg" alt="Fase 1 Imagem 1">
+                    <img src="fase1-2.jpg" alt="Fase 1 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item right" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 2</h2>
+                    <p>Descrição da fase 2 do projeto.</p>
+                    <img src="fase2-1.jpg" alt="Fase 2 Imagem 1">
+                    <img src="fase2-2.jpg" alt="Fase 2 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 3</h2>
+                    <p>Descrição da fase 3 do projeto.</p>
+                    <img src="fase3-1.jpg" alt="Fase 3 Imagem 1">
+                    <img src="fase3-2.jpg" alt="Fase 3 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item right" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 4</h2>
+                    <p>Descrição da fase 4 do projeto.</p>
+                    <img src="fase4-1.jpg" alt="Fase 4 Imagem 1">
+                    <img src="fase4-2.jpg" alt="Fase 4 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 5</h2>
+                    <p>Descrição da fase 5 do projeto.</p>
+                    <img src="fase5-1.jpg" alt="Fase 5 Imagem 1">
+                    <img src="fase5-2.jpg" alt="Fase 5 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item right" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 6</h2>
+                    <p>Descrição da fase 6 do projeto.</p>
+                    <img src="fase6-1.jpg" alt="Fase 6 Imagem 1">
+                    <img src="fase6-2.jpg" alt="Fase 6 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 7</h2>
+                    <p>Descrição da fase 7 do projeto.</p>
+                    <img src="fase7-1.jpg" alt="Fase 7 Imagem 1">
+                    <img src="fase7-2.jpg" alt="Fase 7 Imagem 2">
+                </div>
+            </div>
+            <div class="timeline-item right" onclick="toggleCollapse(this)">
+                <div class="timeline-item-content">
+                    <h2>Fase 8</h2>
+                    <p>Descrição da fase 8 do projeto.</p>
+                    <img src="fase8-1.jpg" alt="Fase 8 Imagem 1">
+                    <img src="fase8-2.jpg" alt="Fase 8 Imagem 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const guide = document.querySelector('.guide');
+            setTimeout(() => {
+                guide.style.display = 'none';
+            }, 5000); // Guia desaparece após 5 segundos
+        });
+
+        function toggleCollapse(element) {
+            element.classList.toggle('collapsed');
+        }
+    </script>
+
+</body>
+</html>
